@@ -1,0 +1,16 @@
+tr td:nth-child(odd) {
+    width: 1%;
+    white-space: nowrap;
+}
+#drawer-user{
+    height: auto;
+    min-height:100vh;
+    overflow-y: hidden;
+}
+
+#drawer-user .drawer-toggle ~ .drawer-side {
+    max-height: fit-content;
+}
+.noticeList li:hover{
+    background-color: green;
+}

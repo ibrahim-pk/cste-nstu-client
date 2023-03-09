@@ -1,0 +1,8 @@
+.msg_chairman_main{
+    background: url("./../../../img//blue-design.png") no-repeat top left;
+    background-size: 15%;
+    padding-bottom:40px ;
+}
+.msg_chairman_text p{
+    margin-bottom: 5px;
+}

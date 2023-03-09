@@ -1,0 +1,10 @@
+
+td, th{
+    padding:10px;
+}
+th{
+    background-color: #EEE;
+}
+img {
+    display: initial !important;
+}
