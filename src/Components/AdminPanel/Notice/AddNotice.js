@@ -12,9 +12,6 @@ export default function AddNotice() {
           <div className="card noticeCard2 shadow-md text-center p-2 my-2 text-xl font-bold">
             <Link to="/notice/student">Student</Link>
           </div>
-          <div className="card noticeCard3 shadow-md text-center p-2 my-2 text-xl font-bold">
-            <h1>Teacher</h1>
-          </div>
         </div>
       </div>
     </div>

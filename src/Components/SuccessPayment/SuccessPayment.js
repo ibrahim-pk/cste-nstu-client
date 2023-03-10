@@ -4,7 +4,7 @@ const SuccessPayment = () => {
   useEffect(() => {
     swal("Wellcome", "Your payment successfully!", "success");
     setTimeout(() => {
-      window.location.href = "/myprofile";
+      window.location.href = "/";
     }, 2000);
   }, []);
   return <div></div>;

@@ -51,6 +51,7 @@ import Document from "./Components/Career/Menu/Document";
 import Expreince from "./Components/Career/Menu/Expreince";
 import Publication from "./Components/Career/Menu/Publication";
 import Training from "./Components/Career/Menu/Training";
+import ApplicantRouter from "./Components/Router/ApplicantRouter";
 
 function App() {
   return (
@@ -80,14 +81,7 @@ function App() {
             </UserLayout>
           }
         ></Route>
-        <Route
-          path="/career/online/job/apply/home"
-          element={
-            <OnlineJobLayout>
-              <JobAppHome></JobAppHome>
-            </OnlineJobLayout>
-          }
-        ></Route>
+        
         <Route
           path="/career/online/job/apply/login"
           element={
@@ -105,18 +99,33 @@ function App() {
           }
         ></Route>
         <Route
+          path="/career/online/job/apply/home"
+          element={
+            <OnlineJobLayout>
+              <ApplicantRouter>
+                <JobAppHome></JobAppHome>
+              </ApplicantRouter>
+             
+            </OnlineJobLayout>
+          }
+        ></Route>
+        <Route
           path="/career/online/job/qualification"
           element={
             <OnlineJobLayout>
-              <Qualification></Qualification>
+              <ApplicantRouter>
+                 <Qualification></Qualification>
+              </ApplicantRouter>
             </OnlineJobLayout>
           }
         ></Route>
         <Route
           path="/career/online/job/document"
           element={
-            <OnlineJobLayout>
-              <Document></Document>
+            <OnlineJobLayout>           
+              <ApplicantRouter>
+                 <Document></Document>
+              </ApplicantRouter>
             </OnlineJobLayout>
           }
         ></Route>
@@ -124,7 +133,10 @@ function App() {
           path="/career/online/job/expreience"
           element={
             <OnlineJobLayout>
-              <Expreince></Expreince>
+              <ApplicantRouter>
+                <Expreince></Expreince>
+              </ApplicantRouter>
+              
             </OnlineJobLayout>
           }
         ></Route>
@@ -132,7 +144,9 @@ function App() {
           path="/career/online/job/publication"
           element={
             <OnlineJobLayout>
-              <Publication></Publication>
+              <ApplicantRouter>
+                <Publication></Publication>
+              </ApplicantRouter>       
             </OnlineJobLayout>
           }
         ></Route>
@@ -140,8 +154,22 @@ function App() {
           path="/career/online/job/training"
           element={
             <OnlineJobLayout>
-              <Training></Training>
+               <ApplicantRouter>
+                <Training></Training>
+              </ApplicantRouter> 
+              
             </OnlineJobLayout>
+          }
+        ></Route>
+         <Route
+          path="/career/online/job/circuler/dashboard/:id"
+          element={
+            <OnlineJobLayout>
+              <ApplicantRouter>
+              <Dashboard></Dashboard>
+              </ApplicantRouter>     
+            </OnlineJobLayout>
+            
           }
         ></Route>
          <Route
@@ -161,15 +189,7 @@ function App() {
             </UserLayout>
           }
         ></Route>
-        <Route
-          path="/career/online/job/circuler/dashboard/:id"
-          element={
-            <OnlineJobLayout>
-              <Dashboard></Dashboard>
-            </OnlineJobLayout>
-            
-          }
-        ></Route>
+       
         <Route
           path="/student/login"
           element={

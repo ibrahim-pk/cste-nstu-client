@@ -84,7 +84,7 @@ const Training = () => {
                     <th className='border border-black bg-transparent w-1/4'>Action</th>
                 </tr>
                 {
-                    allTraining.length>0&&!loading?
+                    allTraining?.length>0&&!loading?
                     allTraining.map((item,idx)=>(
                         <tr key={idx}>
                     <td className='border border-black bg-transparent'>{item.title}</td>

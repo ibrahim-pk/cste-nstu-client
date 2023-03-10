@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
-const OnlineApply = () => {
+import ViewApplicant from './ViewApplicant';
+
+const AllApplicant = () => {
     const [allJob,setAlljob]=useState([])
     const [loading,setLoading]=useState(false)
+    const [viewApplicant,setViewApplicant]=useState('')
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
@@ -16,12 +19,10 @@ const OnlineApply = () => {
     return (
         <div className='max-w-screen-lg mx-auto my-5'>
             <div className='card shadow-lg text-center my-5 p-2 bg-blue-700 text-white'>
-              <h1 className='text-2xl font-bold'>Recent Job Circulars</h1>
+              <h1 className='text-2xl font-bold'>All Applicant </h1>
                <h1 className='text-xl font-bold'>NSTU</h1>
             </div>
-            {
-                  loading&&<h1 className='text-center text-xl text-error'>Loading...</h1>  
-                }
+          
             <div className="w-full max-w-screen-lg mx-auto overflow-x-auto p-2">
           <table className="border  border-black	 table-auto">
             <thead>
@@ -45,7 +46,9 @@ const OnlineApply = () => {
               </tr>
             </thead>
             <tbody>
-                
+                {
+                  loading&&<h1 className='text-center text-xl font-semibold'>Loading...</h1>  
+                }
            {
              allJob.length>0&&!loading&&
              allJob.map((item,idx)=>(
@@ -59,9 +62,9 @@ const OnlineApply = () => {
                   <a target='_blank' href={item.viewLink} className="btn mx-1 btn-sm">
                   View
                 </a>
-                <Link to={`/career/online/job/circuler/dashboard/${item._id}`} className="btn mx-1 btn-sm btn-info">
-                  Apply
-                </Link>
+                <button onClick={()=>setViewApplicant(item?._id)} className="btn mx-1 btn-sm btn-info">
+                  Applicant
+                </button>
                   </td>
                </tr>
              ))
@@ -69,24 +72,11 @@ const OnlineApply = () => {
             </tbody>
           </table>
         </div>
-        <div className='text-center'>
-            {/* The button to open modal */}
-        <label htmlFor="how-job-apply-modal" className="text-blue-700 my-10" style={{cursor:'pointer'}}>How To Apply</label>
-
-        {/* Put this part before </body> tag */}
-        <input type="checkbox" id="how-job-apply-modal" className="modal-toggle" />
-        <div className="modal">
-        <div className="modal-box relative">
-            <label htmlFor="how-job-apply-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 className="text-lg my-5 font-bold">How to job apply in the website?</h3>
-            <ul>
-              <li>1.Go to the career option</li>
-            </ul>
-        </div>
-        </div>
-        </div>
+        {
+            viewApplicant&&<ViewApplicant id={viewApplicant}></ViewApplicant>
+        }
         </div>
     );
 };
 
-export default OnlineApply;
+export default AllApplicant;

@@ -122,7 +122,7 @@ const JobAppHome = () => {
                     <th className='border border-black bg-transparent w-1/6'>Result</th>
                 </tr>
                 {
-                    allQualification.length>0&&!loading?
+                    allQualification?.length>0&&!loading?
                     allQualification.map((item,idx)=>(
                         <tr key={idx}>
                     <td className='border border-black bg-transparent'>{item.exam}</td>
@@ -148,14 +148,14 @@ const JobAppHome = () => {
                     <th className='border border-black bg-transparent w-1/4'>Duration</th>
                 </tr>
                 {
-                    allTraining.length>0&&!loading?
+                    allTraining?.length>0&&!loading?
                     allTraining.map((item,idx)=>(
                         <tr key={idx}>
                     <td className='border border-black bg-transparent'>{item.title}</td>
                     <td className='border border-black bg-transparent'>{item.institute}</td>
                     <td className='border border-black bg-transparent'>{item.duration}</td>
                          </tr>
-                    )):<h1 className='text-center  my-5 text-error'>Please add your training</h1>
+                    )):<h1 className='my-5 text-error'>Please add your training</h1>
                 }
             </table>
          </div>

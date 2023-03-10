@@ -7,6 +7,7 @@ const Navbar = () => {
   const logOutUser=()=>{
     localStorage.removeItem('JobUser')
     setReloader(!reLoader)
+    window.location.href='/career/online/job/apply/login'
   }
   useEffect(()=>{
    token=JSON.parse(localStorage.getItem('JobUser'))
@@ -42,7 +43,7 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li><Link to='/career/online/job/apply/home'>Home</Link></li>
-      <li><a>Profile</a></li>
+      <li><Link to='/career/online/job/apply'>Payment</Link></li>
       <li><Link to='/career/online/job/qualification'>Qualification</Link></li>
       <li><Link to='/career/online/job/document'>Documents</Link></li>
       <li><Link to='/career/online/job/expreience'>Experiences</Link></li>

@@ -83,7 +83,7 @@ const Qualification = () => {
                     <th className='border border-black bg-transparent w-1/4'>Action</th>
                 </tr>
                 {
-                    allQualification.length>0&&!loading?
+                    allQualification?.length>0&&!loading?
                     allQualification.map((item,idx)=>(
                         <tr key={idx}>
                     <td className='border border-black bg-transparent'>{item.exam}</td>

@@ -23,6 +23,7 @@ import CurriculumAdmin from "./Academic/CurriculumAdmin";
 import RagistrationFormAdmin from "./Academic/RagistrationFormAdmin";
 import CsteOfficial from "./Gallary.js/CsteOfficial";
 import JobCirculer from "./Career/JobCirculer";
+import AllApplicant from "./Career/AllApplicant";
 
 
 export default function AdminPanel() {
@@ -74,6 +75,7 @@ export default function AdminPanel() {
             {page === "registration" && <RagistrationFormAdmin />}
             {page === "csteOfficial" && <CsteOfficial />}
             {page === "jobCirculer" && <JobCirculer />}
+            {page === "allApplicant" && <AllApplicant />}
             
           </div>
         </div>
@@ -149,6 +151,15 @@ export default function AdminPanel() {
                   }}
                 >
                   Job Circuler
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    setPage("allApplicant");
+                  }}
+                >
+                  All Applicant
                 </button>
               </li>
             </ul>

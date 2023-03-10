@@ -5,7 +5,7 @@ const PrivateRouter = ({ children }) => {
   const rol = JSON.parse(localStorage.getItem("UserDetails"));
 
   let location = useLocation();
-  if (!rol?.student) {
+  if (!rol) {
     return <Navigate to="/student/login" state={{ from: location }} replace />;
   }
 

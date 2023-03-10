@@ -273,11 +273,11 @@ export default function NavBarRedisgn() {
                   <Link to="/career/online/job/apply">APPLY ONLINE</Link>
                 </li>
                 <li>
-                  <Link to="/career/online/job/circuler">JOB CIRCULER</Link>
+                  <Link to="/career/online/job/circuler">CIRCULER</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/career/online/application/form">APPLICATION FORM</Link>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li tabIndex={0}>

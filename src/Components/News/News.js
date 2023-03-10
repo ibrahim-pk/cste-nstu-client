@@ -20,8 +20,8 @@ export default function News() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-screen-xl	 w-full px-4 mt-16 mb-4">
-      <h2 className="text-3xl mb-12 text-center">News</h2>
+    <div className="mx-auto max-w-screen-lg	 w-full px-4 mt-5 mb-4">
+      <h2 className="text-3xl mb-5 text-blue-700 text-center">News</h2>
       <div>
         {loading ? (
           <div className="mx-auto max-w-screen-xl	  px-4 mt-16 mb-4 text-center">

@@ -48,8 +48,8 @@ export default function Students() {
           </div>
         </div>
       ) : (
-        <div className="mx-auto max-w-screen-xl	 w-full px-4 mt-10 mb-4">
-          <h2 className="text-3xl mb-15 text-center">Students</h2>
+        <div className="mx-auto max-w-screen-lg	 w-full px-4 mt-10 mb-4">
+          <h2 className="text-3xl mb-15 text-blue-700 text-center">Students</h2>
           <div className="overflow-x-auto w-full">
             <div className="w-full overflow-hidden my-2 pb-2 flex justify-between">
               <div className="form-control w-full max-w-xs">

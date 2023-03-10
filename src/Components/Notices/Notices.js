@@ -21,8 +21,8 @@ export default function Notices() {
     fetchData();
   }, []);
   return (
-    <div className="mx-auto max-w-screen-xl	 w-full px-4 mt-16 mb-4">
-      <h2 className="text-3xl mb-12 text-center">Notices</h2>
+    <div className="mx-auto max-w-screen-lg	 w-full px-4 mt-5 ">
+      <h2 className="text-3xl mb-5 text-blue-700 text-center">Notices</h2>
       <div className="w-full overflow-hidden p-2">
         <InputField
           type="text"
@@ -34,7 +34,7 @@ export default function Notices() {
       </div>
       <div>
         {loading ? (
-          <div className="mx-auto max-w-screen-xl	  px-4 mt-16 mb-4 text-center">
+          <div className="mx-auto max-w-screen-xl	  px-4 mt-5 mb-4 text-center">
             <div role="status">
               <svg
                 className="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
