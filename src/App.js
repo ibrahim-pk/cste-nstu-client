@@ -52,6 +52,8 @@ import Expreince from "./Components/Career/Menu/Expreince";
 import Publication from "./Components/Career/Menu/Publication";
 import Training from "./Components/Career/Menu/Training";
 import ApplicantRouter from "./Components/Router/ApplicantRouter";
+import ViewApplicant from "./Components/AdminPanel/Career/ViewApplicant";
+import ApplicantResume from "./Components/AdminPanel/Career/ApplicantResume";
 
 function App() {
   return (
@@ -177,6 +179,27 @@ function App() {
           element={
             <UserLayout>
               <JobCirculer ></JobCirculer>
+            </UserLayout>
+          }
+        ></Route>
+
+        <Route
+          path="/admin/dashboard/applicant/:id"
+          element={
+            <UserLayout>
+              <PrivateRouter>
+                <ViewApplicant ></ViewApplicant>
+              </PrivateRouter>
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/admin/dashboard/applicant/resume/:id"
+          element={
+            <UserLayout>
+              <PrivateRouter>
+                <ApplicantResume ></ApplicantResume>
+              </PrivateRouter>
             </UserLayout>
           }
         ></Route>

@@ -12,6 +12,7 @@ const Dashboard = () => {
     const [allDocument,setAllDocument]=useState([])
     const [allPublication,setAllPublication]=useState([])
     const [singleJob,setSingleJob]=useState({})
+    const [applicantInfo,setApplicantInfo]=useState({})
     const [loading,setLoading]=useState(false)
 
     const applicantPayment=async()=>{
@@ -37,6 +38,8 @@ const Dashboard = () => {
         const fetchData=async()=>{
             setLoading(true)
             const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${token?.userInfo?._id}`)
+            setApplicantInfo(token?.userInfo)
+           // console.log(token?.userInfo?.PaymentDetails)
             setAllTraining(data?.info?.training)
             setAllQualification(data?.info?.qualification)
             setAllExp(data?.info?.experience)
@@ -94,9 +97,9 @@ const Dashboard = () => {
             </div>
             </div>
              {
-                allDocument?.length>0&&allQualification?.length>0?<button 
+                allDocument?.length>0&&allQualification?.length>0&&!(applicantInfo?.PaymentDetails)?<button 
                 onClick={applicantPayment}
-                className='btn btn-sm  mt-4'>Pay</button>:<button className='btn btn-disabled btn-sm mt-4'>Pay</button>
+                className='btn btn-sm  mt-4'>Pay</button>:allDocument?.length>0&&allQualification?.length>0&&(applicantInfo?.PaymentDetails)?<button className='btn btn-disabled btn-sm mt-4'>Paid</button>:<button className='btn btn-disabled btn-sm mt-4'>Pay</button>
              }
             </div>
             <Toaster></Toaster>

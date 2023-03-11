@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
-import ViewApplicant from './ViewApplicant';
 
 const AllApplicant = () => {
     const [allJob,setAlljob]=useState([])
-    const [loading,setLoading]=useState(false)
-    const [viewApplicant,setViewApplicant]=useState('')
+    const [loading,setLoading]=useState(false) 
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
@@ -62,9 +60,9 @@ const AllApplicant = () => {
                   <a target='_blank' href={item.viewLink} className="btn mx-1 btn-sm">
                   View
                 </a>
-                <button onClick={()=>setViewApplicant(item?._id)} className="btn mx-1 btn-sm btn-info">
+                <Link to={`/admin/dashboard/applicant/${item?._id}`}  className="btn mx-1 btn-sm btn-info">
                   Applicant
-                </button>
+                </Link>
                   </td>
                </tr>
              ))
@@ -72,9 +70,6 @@ const AllApplicant = () => {
             </tbody>
           </table>
         </div>
-        {
-            viewApplicant&&<ViewApplicant id={viewApplicant}></ViewApplicant>
-        }
         </div>
     );
 };

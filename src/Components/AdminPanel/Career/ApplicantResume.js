@@ -1,20 +1,36 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import ReactToPdf from "react-to-pdf";
-import logo from "./../../../img/logo.png";
-const JobAppHome = () => {
+import { toast, Toaster } from "react-hot-toast";
+import { useParams } from 'react-router-dom';
+const ApplicantResume = () => {
     let token=JSON.parse(localStorage.getItem('JobUser'))
-    const ref = React.createRef();
+    const {id}=useParams()
     const [applicantInfo,setApplicantInfo]=useState()
     const [allTraining,setAllTraining]=useState([])
     const [allQualification,setAllQualification]=useState([])
     const [allExp,setAllExp]=useState([])
     const [loading,setLoading]=useState(false)
-   
+    const [reLoader,setReLoader]=useState(false)
+    const approveAppHandle=async(value)=>{
+        //console.log(value)
+        setLoading(true)
+        const {data}=await axios.patch(`http://localhost:5000/api/job/applicant/isapprove/${id}`,{
+            value
+        })
+        if(data?.msg){
+            toast.success(data.msg)
+            setLoading(false)
+            setReLoader(!reLoader)
+        }else{
+            toast.error(data.error)
+            setLoading(false)
+            setReLoader(!reLoader)
+        }
+    }
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
-            const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${token?.userInfo?._id}`)
+            const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${id}`)
             setApplicantInfo(data?.info)
             setAllTraining(data?.info?.training)
             setAllQualification(data?.info?.qualification)
@@ -22,64 +38,25 @@ const JobAppHome = () => {
             setLoading(false)
         }
         fetchData()
-    },[])
-
+    },[reLoader])
 
     return (
         <div className='max-w-screen-lg mx-auto'>
             <h1 className='text-center text-blue-700 text-2xl font-semibold my-5'>Personal Info</h1>
              
-            <ReactToPdf   targetRef={ref} filename="admit.pdf"  x={.5} y={.5} scale={0.8}>
-                {({ toPdf }) => <button className='my-5 text-blue-700' onClick={toPdf}><i className="fas mx-1  fa-download"></i>Download Admit</button>}
-            </ReactToPdf>
-            <div style={{width:'full'}} ref={ref}>
-                <div className='max-w-screen-sm mx-auto'>
-                    <div className='card border my-5 p-5 shadow-lg'>
-                    <div className='flex justify-between'>
-                        <div>
-                            <img src={logo} alt="NSTU LOGO" className="w-8" />
-                        </div>
-                        <div>
-                            <h3
-                            className="text-xl"
-                            >
-                            Noakhali Science & Technology Univeristy
-                            </h3>
-                            <h3
-                            className="text-sm text-center font-bold"
-                            >
-                            Applicant's Admit Card
-                            </h3>
-                        </div>
-                        <div>
-                            <img width='75' height='auto' src={applicantInfo?.appImg} alt='applicant'></img>
-                        </div>
-
-                    </div>
-                    <div>
-                        <h1>Applicant's Name:{applicantInfo?.appNameEng}</h1>
-                        <h1>Father's Name:{applicantInfo?.appFaNameEng}</h1>
-                        <h1>Mother's Name:{applicantInfo?.appMoNameEng}</h1>
-                        <h1>Gender:{applicantInfo?.appGender}</h1>
-                        <h1>Applicant's ID:{applicantInfo?._id}</h1>
-                    </div>
-                     <div className='flex justify-between my-5'>
-                        <div>
-                            <h1>Applicant Sign</h1>
-                            <img width='150' height='auto'  src={applicantInfo?.appSign} alt='applicant'></img>
-                        </div>
-                        <div>
-                            <h1>Controller Sign</h1>
-                        </div>
-                     </div>
-                    </div>
-                </div>
-            </div>
-
-
-
             <div>
-                <div className='card p-5 my-5 border w-full shadow-lg'>
+                {
+                    applicantInfo?.admitCard? <button onClick={()=>approveAppHandle(0)} className='my-5 text-rose-700'>
+                    <i className="far mx-1 fa-window-close"></i>
+                    Cancel Approve </button>:<button onClick={()=>approveAppHandle(1)} className='my-5 text-blue-700'>
+               <i className="far mx-1 fa-thumbs-up"></i>
+               Approve Applicant</button>
+                    
+                }
+              
+            </div>
+            <div  >
+                <div className='card p-5 my-2 border w-full shadow-lg'>
                      <div className='flex px-10 justify-between'>
                      <div className='cvHeading'>
                         <h1 className='text-2xl font-semibold'>{token?.userInfo?.appNameEng}</h1>
@@ -241,8 +218,9 @@ const JobAppHome = () => {
          }
                 </div>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };
 
-export default JobAppHome;
+export default ApplicantResume;
