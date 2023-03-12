@@ -24,6 +24,7 @@ import RagistrationFormAdmin from "./Academic/RagistrationFormAdmin";
 import CsteOfficial from "./Gallary.js/CsteOfficial";
 import JobCirculer from "./Career/JobCirculer";
 import AllApplicant from "./Career/AllApplicant";
+import { Link } from "react-router-dom";
 
 
 export default function AdminPanel() {
@@ -45,9 +46,10 @@ export default function AdminPanel() {
             <div>
               <h2 className="text-2xl font-semibold">Admin Panel</h2>
             </div>
-            <button className="btn bg-blue-900 hover:hover:bg-blue-800 text-white">
-              Log out
-            </button>
+            <Link to='/'>
+            <button className="btn btn-sm bg-blue-900 hover:hover:bg-blue-800 text-white">
+              Home
+            </button></Link>
           </div>
           <div className="p-5 mb-10">
             {page === "addStudent" && <AddStudent />}

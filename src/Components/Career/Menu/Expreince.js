@@ -18,7 +18,7 @@ const Expreince = () => {
     const handleExperience=async(e)=>{
         e.preventDefault()
         if(designation&&organization&&organizationType&&startDate&&endDate){
-            const {data}=await axios.patch('http://localhost:5000/api/job/apply/experience',{
+            const {data}=await axios.patch('https://cste-club-ibrahimecste.vercel.app/api/job/apply/experience',{
                 id:token?.userInfo?._id,
                 experience:{
                     designation,
@@ -53,7 +53,7 @@ const Expreince = () => {
     }
     const deleteExperience=async(index)=>{
           const {data}=await axios.
-          post('http://localhost:5000/api/job/apply/experience',{
+          post('https://cste-club-ibrahimecste.vercel.app/api/job/apply/experience',{
             id:token?.userInfo?._id,
             index
           },{
@@ -69,7 +69,7 @@ const Expreince = () => {
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
-            const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${token?.userInfo?._id}`)
+            const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/job/applicant/${token?.userInfo?._id}`)
             setAllExp(data?.info?.experience)
                 setLoading(false)
         }

@@ -11,7 +11,7 @@ const TeacherProfile = () => {
       const user = JSON.parse(localStorage.getItem("UserDetails"));
       setLoginTeacher(user?.teacher);
     }, []);
-    const email = loginTeacher?.email;
+  
     return (
         <div>
       <div className="drawer" id="drawer-user">

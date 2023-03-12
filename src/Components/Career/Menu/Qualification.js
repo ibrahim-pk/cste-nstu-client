@@ -16,7 +16,7 @@ const Qualification = () => {
     const handleQualification=async(e)=>{
         e.preventDefault()
         if(exam&&institute&&passingYr&&result&&study){
-            const {data}=await axios.patch('http://localhost:5000/api/job/apply/qualification',{
+            const {data}=await axios.patch('https://cste-club-ibrahimecste.vercel.app/api/job/apply/qualification',{
                 id:token?.userInfo?._id,
                 qualification:{exam,institute,passingYr,result,study}
             },{
@@ -44,7 +44,7 @@ const Qualification = () => {
     }
     const deleteQualification=async(index)=>{
           const {data}=await axios.
-          post('http://localhost:5000/api/job/apply/qualification',{
+          post('https://cste-club-ibrahimecste.vercel.app/api/job/apply/qualification',{
             id:token?.userInfo?._id,
             index
           },{
@@ -60,7 +60,7 @@ const Qualification = () => {
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
-            const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${token?.userInfo?._id}`)
+            const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/job/applicant/${token?.userInfo?._id}`)
             setAllQualification(data?.info?.qualification
                 )
                 setLoading(false)

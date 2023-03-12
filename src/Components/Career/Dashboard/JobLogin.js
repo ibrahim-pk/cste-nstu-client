@@ -9,7 +9,7 @@ const JobLogin = () => {
 
   const handleLogin=async(e)=>{
      e.preventDefault()
-     const {data}=await axios.post('http://localhost:5000/api/job/apply/login',{
+     const {data}=await axios.post('https://cste-club-ibrahimecste.vercel.app/api/job/apply/login',{
       appEmail,
       appPassword
      })

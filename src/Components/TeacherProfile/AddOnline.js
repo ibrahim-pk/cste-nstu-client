@@ -13,7 +13,7 @@ const AddOnline = () => {
             toast.error('Playlist name is empty')
          }else{
             setLoading(true)
-            const {data}=await axios.post('http://localhost:5000/api/online/playlist',{
+            const {data}=await axios.post('https://cste-club-ibrahimecste.vercel.app/api/online/playlist',{
                 playList,
                 about,
                 playlistLink,

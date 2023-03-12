@@ -14,7 +14,7 @@ const ApplicantResume = () => {
     const approveAppHandle=async(value)=>{
         //console.log(value)
         setLoading(true)
-        const {data}=await axios.patch(`http://localhost:5000/api/job/applicant/isapprove/${id}`,{
+        const {data}=await axios.patch(`https://cste-club-ibrahimecste.vercel.app/api/job/applicant/isapprove/${id}`,{
             value
         })
         if(data?.msg){
@@ -30,7 +30,7 @@ const ApplicantResume = () => {
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
-            const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${id}`)
+            const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/job/applicant/${id}`)
             setApplicantInfo(data?.info)
             setAllTraining(data?.info?.training)
             setAllQualification(data?.info?.qualification)

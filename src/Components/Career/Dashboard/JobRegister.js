@@ -81,7 +81,7 @@ const JobRegister = () => {
 
     const handleSubmit=async(e)=>{
         e.preventDefault();
-        const {data}=await axios.post('http://localhost:5000/api/job/apply/registration',{
+        const {data}=await axios.post('https://cste-club-ibrahimecste.vercel.app/api/job/apply/registration',{
             appNameEng,
             appNameBang,
             appFaNameEng,
@@ -110,6 +110,9 @@ const JobRegister = () => {
         })
         if(data.msg){
             toast.success(data?.msg)
+            setTimeout(()=>{
+             window.location.href='/career/online/job/apply/login'
+            },2000)
             setAppNameEng('')
             setAppNameBang('')
             setAppFaNameEng('')

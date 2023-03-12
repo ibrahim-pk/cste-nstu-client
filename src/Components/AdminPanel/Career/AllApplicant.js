@@ -8,7 +8,7 @@ const AllApplicant = () => {
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
-           const {data}=await axios.get('http://localhost:5000/api/online/job/circuler')
+           const {data}=await axios.get('https://cste-club-ibrahimecste.vercel.app/api/online/job/circuler')
            setAlljob(data?.allJob)
            setLoading(false)
         }

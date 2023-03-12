@@ -86,7 +86,7 @@ const ProfileCard = ({ loginStudent }) => {
   let myNotice;
   useEffect(() => {
     fetch(
-      `https://cste-club-ibrahimecste.vercel.app/api/add/student/notice/${user?.student.batch}`,
+      `https://cste-club-ibrahimecste.vercel.app/api/add/student/notice/${user?.student?.batch}`,
       {
         method: "GET",
         headers: {
@@ -119,12 +119,12 @@ const ProfileCard = ({ loginStudent }) => {
         <figure>
           {/* <i className="fas my-2 fa-user-circle"></i> */}
           <div className="ProfileAvatar">
-            {loginStudent.picture ? (
-              <img src={loginStudent.picture} alt="profile" />
+            {loginStudent?.picture ? (
+              <img src={loginStudent?.picture} alt="profile" />
             ) : (
               <i className="fas my-2 fa-user-circle"></i>
             )}
-            {loginStudent.picture ? (
+            {loginStudent?.picture ? (
               <label htmlFor="my-modal-3">Edit Picture</label>
             ) : (
               <label htmlFor="my-modal-3">Add Picture</label>
@@ -177,14 +177,14 @@ const ProfileCard = ({ loginStudent }) => {
                   {allNotice?.length > 0 ? (
                     allNotice.map((item, idx) => (
                       <li>
-                        <Link to={`/notice/student/${item._id}`}>
+                        <Link to={`/notice/student/${item?._id}`}>
                           <div
                             key={idx}
-                            onClick={() => visitPost(item._id)}
+                            onClick={() => visitPost(item?._id)}
                             className="card w-full shadow-lg my-2"
                           >
-                            <h1 className="text-lg">{item.title}</h1>
-                            <h1 className="text-sm">Post:{item.date}</h1>
+                            <h1 className="text-lg">{item?.title}</h1>
+                            <h1 className="text-sm">Post:{item?.date}</h1>
                             <p className="text-xs">
                               Seen:{item?.visit?.length}
                             </p>

@@ -329,13 +329,16 @@ export default function NavBarRedisgn() {
                 </div>
                 <li>
                  
-                  {id === "cstedeptadmin" ?
+                  {userInfo?.role==="teacher"&&userInfo?.admin &&
                    (
-                <Link className="btn w-full my-2 text-white" to="/admin/dashboard">ADMIN DASHBOARD</Link>):userInfo?.role==="teacher" ?( <Link className="btn my-2 text-white" to="/teacher/profile">
-                DASHBOARD
-              </Link>):( <Link className="btn my-2 text-white" to="/myprofile">
-                DASHBOARD
-              </Link>)
+                <Link className="btn w-full my-2 text-white" to="/admin/dashboard">ADMIN DASHBOARD</Link>)
+                }
+                {
+                   userInfo?.role==="teacher"  || !userInfo?.admin ?( <Link className="btn my-2 text-white" to="/teacher/profile">
+                   DASHBOARD
+                 </Link>):( <Link className="btn my-2 text-white" to="/myprofile">
+                   DASHBOARD
+                 </Link>)
                 }
                   
                 </li>

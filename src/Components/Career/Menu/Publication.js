@@ -20,7 +20,7 @@ const Publication = () => {
      const handlePublication=async(e)=>{
          e.preventDefault()
          if(title&&link&&authors){
-             const {data}=await axios.patch('http://localhost:5000/api/job/apply/publication',{
+             const {data}=await axios.patch('https://cste-club-ibrahimecste.vercel.app/api/job/apply/publication',{
                  id:token?.userInfo?._id,
                  publication:{
                     title,
@@ -57,7 +57,7 @@ const Publication = () => {
      }
      const deletePublication=async(index)=>{
            const {data}=await axios.
-           post('http://localhost:5000/api/job/apply/publication',{
+           post('https://cste-club-ibrahimecste.vercel.app/api/job/apply/publication',{
              id:token?.userInfo?._id,
              index
            },{
@@ -71,7 +71,7 @@ const Publication = () => {
      useEffect(()=>{
          const fetchData=async()=>{
              setLoading(true)
-             const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${token?.userInfo?._id}`)
+             const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/job/applicant/${token?.userInfo?._id}`)
              setAllPublication(data?.info?.publication)
                  setLoading(false)
          }

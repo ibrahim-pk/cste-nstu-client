@@ -16,7 +16,7 @@ const Dashboard = () => {
     const [loading,setLoading]=useState(false)
 
     const applicantPayment=async()=>{
-        const {data}=await axios.post(`http://localhost:5000/applicant/init`,{
+        const {data}=await axios.post(`https://cste-club-ibrahimecste.vercel.app/applicant/init`,{
             fee:singleJob?.fees,
             ref: "job",
             jobId:singleJob?._id,
@@ -37,7 +37,7 @@ const Dashboard = () => {
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
-            const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${token?.userInfo?._id}`)
+            const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/job/applicant/${token?.userInfo?._id}`)
             setApplicantInfo(token?.userInfo)
            // console.log(token?.userInfo?.PaymentDetails)
             setAllTraining(data?.info?.training)
@@ -48,7 +48,7 @@ const Dashboard = () => {
             setLoading(false)
         }
         const fetchData1=async()=>{
-            const {data}=await axios.get(`http://localhost:5000/api/online/job/single/${id}`)
+            const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/online/job/single/${id}`)
             setSingleJob(data?.Job)
         }
         fetchData();

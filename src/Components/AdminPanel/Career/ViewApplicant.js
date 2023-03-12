@@ -10,7 +10,7 @@ const ViewApplicant = () => {
     useEffect(()=>{
        const fetchData=async()=>{
         setLoading(true)
-          const {data}=await axios.get(`http://localhost:5000/api/online/job/applicant/${id}`,{
+          const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/online/job/applicant/${id}`,{
             headers: {
                 authorization: `Bearer ${token?.token}`,
               },

@@ -44,7 +44,7 @@ const Document = () => {
     const handleDocument=async(e)=>{
         e.preventDefault()
         if(title&&documentImg&&documentType){
-            const {data}=await axios.patch('http://localhost:5000/api/job/apply/document',{
+            const {data}=await axios.patch('https://cste-club-ibrahimecste.vercel.app/api/job/apply/document',{
                 id:token?.userInfo?._id,
                 document:{
                     title,
@@ -76,7 +76,7 @@ const Document = () => {
     }
     const deleteDocument=async(index)=>{
           const {data}=await axios.
-          post('http://localhost:5000/api/job/apply/document',{
+          post('https://cste-club-ibrahimecste.vercel.app/api/job/apply/document',{
             id:token?.userInfo?._id,
             index
           },{
@@ -92,7 +92,7 @@ const Document = () => {
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
-            const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${token?.userInfo?._id}`)
+            const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/job/applicant/${token?.userInfo?._id}`)
             setAllDocument (data?.info?.document)
                 setLoading(false)
         }

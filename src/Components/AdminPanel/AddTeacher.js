@@ -48,6 +48,8 @@ export default function AddTeacher() {
         email,
         password,
         role: "teacher",
+        admin:false,
+        display:1
       }),
     })
       .then((res) => res.json())

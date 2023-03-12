@@ -13,7 +13,7 @@ const JobCirculer = () => {
     const [viewLink, setViewLink] = useState('');
     const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/online/job/circuler", {
+    fetch("https://cste-club-ibrahimecste.vercel.app/api/online/job/circuler", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

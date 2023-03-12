@@ -4,7 +4,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const TeacherProfileCard = ({loginTeacher}) => {
-    const [imgUrl, setImageUrl] = useState("");
+  //console.log(loginTeacher)
+  const [imgUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [reLoading, setReLoading] = useState(false);
   const [msg, setMsg] = useState("");
@@ -73,8 +74,8 @@ const TeacherProfileCard = ({loginTeacher}) => {
         <figure>
           {/* <i className="fas my-2 fa-user-circle"></i> */}
           <div className="ProfileAvatar">
-            {loginTeacher.picture ? (
-              <img src={loginTeacher.picture} alt="profile" />
+            {loginTeacher?.picture ? (
+              <img src={loginTeacher?.picture} alt="profile" />
             ) : (
               <i className="fas my-2 fa-user-circle"></i>
             )}

@@ -14,7 +14,7 @@ const JobAppHome = () => {
     useEffect(()=>{
         const fetchData=async()=>{
             setLoading(true)
-            const {data}=await axios.get(`http://localhost:5000/api/job/applicant/${token?.userInfo?._id}`)
+            const {data}=await axios.get(`https://cste-club-ibrahimecste.vercel.app/api/job/applicant/${token?.userInfo?._id}`)
             setApplicantInfo(data?.info)
             setAllTraining(data?.info?.training)
             setAllQualification(data?.info?.qualification)
@@ -29,7 +29,9 @@ const JobAppHome = () => {
         <div className='max-w-screen-lg mx-auto'>
             <h1 className='text-center text-blue-700 text-2xl font-semibold my-5'>Personal Info</h1>
              
-            <ReactToPdf   targetRef={ref} filename="admit.pdf"  x={.5} y={.5} scale={0.8}>
+            {
+                applicantInfo?.PaymentDetails?.payment?<div>
+                    <ReactToPdf   targetRef={ref} filename="admit.pdf"  x={.5} y={.5} scale={0.8}>
                 {({ toPdf }) => <button className='my-5 text-blue-700' onClick={toPdf}><i className="fas mx-1  fa-download"></i>Download Admit</button>}
             </ReactToPdf>
             <div style={{width:'full'}} ref={ref}>
@@ -75,8 +77,8 @@ const JobAppHome = () => {
                     </div>
                 </div>
             </div>
-
-
+                </div>:<button className='my-5 text-blue-700' ><i className="fas mx-1  fa-download"></i>Pending Admit</button>
+            }
 
             <div>
                 <div className='card p-5 my-5 border w-full shadow-lg'>
